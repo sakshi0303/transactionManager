@@ -1,0 +1,8 @@
+log Scenario4.log
+BeginTx 1 R
+Read    1 1
+BeginTx 2 R
+Read    2 1       
+commit 2
+end all
+//beginTx 1 R begins transaction 1 where all the reads have shared locks and all the write has exclusive locks.

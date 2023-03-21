@@ -1,0 +1,9 @@
+log Scenario3.log
+BeginTx 1 W
+Write    1 1
+BeginTx 2 R
+Write    2 1
+commit 2
+end all
+// writelock on object 1 by T2 must wait if writing on object 1 by T1 happens before it.
+//if writelock on object 1 by T2 happens first the program will exit successfully because commit2 releases the lock on 1 and allow T1 to write on 1

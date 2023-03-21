@@ -1,0 +1,8 @@
+log Scenario2.log
+BeginTx 1 W
+Read    1 1
+BeginTx 2 R
+Write    2 1
+commit 2
+end all
+// writelock on object 1 by T2 must wait for the readlock by T1 on 1 to end

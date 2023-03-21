@@ -1,0 +1,19 @@
+// Multiple RW Txs test case with no deadlock
+// 23 operations
+log multiple_aborts.log
+// op	Tx#	type
+// op	Tx#	Obj
+BeginTx 1 R
+BeginTx 6 R
+Read 1 1
+BeginTx 2 R
+BeginTx 3 R
+abort 3
+commit 2
+abort 1
+begintx 5 R
+read 5 1
+abort 5
+read 6 1
+commit 6
+end all

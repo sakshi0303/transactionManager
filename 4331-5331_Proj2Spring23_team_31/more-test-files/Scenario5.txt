@@ -1,0 +1,8 @@
+log Scenario5.log
+BeginTx 1 W
+Read    1 1
+BeginTx 2 R
+Read    2 1       
+commit 2
+end all
+//beginTx 1 W begins T1 where all the reads have exclusive locks, in this case, reading on 1 by T1 is exclusive Hence, T2 must wait before it can read 1
